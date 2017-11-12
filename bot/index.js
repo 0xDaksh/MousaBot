@@ -1,5 +1,6 @@
 import discord from 'discord.js'
 import events from './events'
+import commands from './commands'
 
 class Mousa {
   constructor(credentials, symbol) {
@@ -10,6 +11,7 @@ class Mousa {
   }
   login() {
    this.client.login(this.token)
+   commands(this)
    events(this)
    console.log('Logged In as %s', this.username) 
   }
