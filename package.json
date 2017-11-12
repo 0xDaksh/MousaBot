@@ -1,0 +1,26 @@
+{
+  "name": "mousabot",
+  "version": "0.0.0",
+  "description": "I'm The Greek Bot, Who Plays Music for you on Discord! I use the Opus Codec to play Music :D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DakshMiglani/MousaBot.git"
+  },
+  "keywords": [
+    "mousabot",
+    "discordbots",
+    "bot",
+    "music",
+    "discord"
+  ],
+  "author": "Daksh Miglani <hello@dak.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DakshMiglani/MousaBot/issues"
+  },
+  "homepage": "https://github.com/DakshMiglani/MousaBot#readme"
+}
