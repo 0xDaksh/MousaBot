@@ -28,6 +28,7 @@
     "babel-register": "^6.26.0",
     "discord.js": "^11.2.1",
     "iterate-js": "^1.1.0",
+    "request": "^2.83.0",
     "ytdl-core": "^0.18.1"
   }
 }
