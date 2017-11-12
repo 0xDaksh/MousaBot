@@ -3,6 +3,6 @@ require('babel-register')({
 })
 const credentials = require('./credentials')
 const Mousa = require('./bot/index.js')
-const mousa = new Mousa(credentials, '=')
+const mousa = new Mousa(credentials, '!')
 
 mousa.login()

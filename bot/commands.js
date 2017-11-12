@@ -41,10 +41,10 @@ export default (bot) => {
 		},
 		skinprice: (msg) => {
 			msg.content = msg.content.toLowerCase()
-			if(msg.content.split('=skinprice ')[0] === '=skinprice'	) {
+			if(msg.content.split(bot.symbol + 'skinprice ')[0] === '=skinprice'	) {
 				msg.reply(' Can you Please Provide the Name of the Skin?')
 			} else {
-				let name = msg.content.split('=skinprice ')[1].toLowerCase()
+				let name = msg.content.split(bot.symbol + 'skinprice ')[1].toLowerCase()
 				let flag = 0
 				for(let i = 0; i < Object.keys(skinPrices.prices).length; i++) {
 					if(
