@@ -1,6 +1,11 @@
 const _ = require('iterate-js')
 const request = require('request')
 
+var skinPrices;
+request('https://api.csgofast.com/sih/all', async function(err, res, body) {
+	skinPrices = await JSON.parse(body)	
+})
+
 export default (bot) => {
 	bot.commands = {
 		hey: (msg) => {
@@ -8,7 +13,11 @@ export default (bot) => {
 		},
 		convert: (msg) => {
 			msg.content = msg.content.toLowerCase()
-			if(typeof msg.content.split('convert')[1] !== 'undefined' && msg.content.split('convert')[1].split(' ').length == 4) {
+			if(
+				typeof msg.content.split('convert')[1] !== 'undefined' && 
+				typeof msg.content.split('convert')[1].split(' ').length !== 'undefined' &&
+				msg.content.split('convert')[1].split(' ').length == 4
+				) {
 				let toConvert = {
 					from: msg.content.split('convert')[1].split(' ')[1],
 					to: msg.content.split('convert')[1].split(' ')[3]
@@ -28,6 +37,21 @@ export default (bot) => {
 				})
 			} else {
 				msg.reply(' Sorry! I cannot convert it. Please Check the Command Again!')
+			}
+		},
+		skinprice: (msg) => {
+			msg.content = msg.content.toLowerCase()
+			if(msg.content.split('=skinprice ')[0] === '=skinprice'	) {
+				msg.reply(' Can you Please Provide the Name of the Skin?')
+			} else {
+				let name = msg.content.split('=skinprice ')[1].toLowerCase()
+				console.log(name)
+				for(let i = 0; i < Object.keys(skinPrices.prices).length; i++) {
+					if(Object.keys(skinPrices.prices)[i].toLowerCase().indexOf(name) !== -1) {
+						msg.reply('The price of: ' + Object.keys(skinPrices.prices)[i] + ' is ' + skinPrices.prices[Object.keys(skinPrices.prices)[i]])
+						break
+					}
+				}
 			}
 		}
 	}
